@@ -15,6 +15,18 @@
  * The result should be 9
  */
 function getMatrixElementsSum(/* matrix */) {
+  // let sum = 0;
+  // let flag = true;
+  // for (let i = 0; i < matrix[0].length; i++) {
+  //   flag = true;
+  //   for (let j = 0; j < matrix.length && flag; j++) {
+  //     if (!matrix[i][j] || matrix[i][j] === 0) {
+  //       flag = false;
+  //     } else {
+  //       flag = true;
+  //       sum += matrix[i][j];
+  //     }
+  //   }
   throw new Error('Not implemented');
 }
 
