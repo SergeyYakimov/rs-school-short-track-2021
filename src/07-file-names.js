@@ -22,12 +22,6 @@ function renameFiles(names) {
       if (arr[i] === arr[j]) {
         arr[j] = `${arr[j]}(${count})`;
         count++;
-        // if (!Number.isNaN(+arr[j][arr[j].length - 2])
-        // && !Number.isNaN(+arr[j][arr[j].length - 5])) {
-        //   arr[j] = `${arr[j].slice(0, arr[j].length - 2)}${+arr[j][arr[j].length - 2] + 1})`;
-        // } else {
-        //   arr[j] = `${arr[j]}(1)`;
-        // }
       }
     }
   }
