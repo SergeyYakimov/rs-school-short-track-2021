@@ -8,29 +8,41 @@
  * For aabbbc should return 2a3bc
  *
  */
-function encodeLine(/* str */) {
-  // const arr = [];
-  // let counter;
-  // const position = 0;
-  // for (let i = position; i < str.length - 1;) {
-  //   counter = 1;
-  //   for (let j = i + 1; j < str.length; j++) {
-  //     if (str[i] === str[j]) {
-  //       counter++;
-  //     } else if (counter === 1) {
-  //       arr.push(str[i]);
-  //       i = j;
-  //       break;
-  //     } else {
-  //       arr.push(`${counter}${str[i]}`);
-  //       i = j;
-  //       break;
-  //     }
-  //   }
-  // }
+function encodeLine(str) {
+  const arr = [];
+  const stack = [];
+  let counter = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === stack[0]) {
+      counter++;
+    }
 
-  // return arr.join('');
-  throw new Error('Not implemented');
+    if (stack.length === 0) {
+      stack.push(str[i]);
+    }
+
+    if (str[i] !== stack[0]) {
+      const el = stack.pop();
+      if (counter > 1) {
+        arr.push(`${counter}${el}`);
+      } else {
+        arr.push(el);
+      }
+      stack.push(str[i]);
+      counter = 1;
+    }
+
+    if (i === str.length - 1) {
+      const el = stack.pop();
+      if (counter > 1) {
+        arr.push(`${counter}${el}`);
+      } else {
+        arr.push(el);
+      }
+    }
+  }
+
+  return arr.join('');
 }
 
 module.exports = encodeLine;
